@@ -1,0 +1,41 @@
+#sinartisi pou metatrepei ascii se diadiko
+def toBinary(a):
+  l,m=[],[]
+  for i in a:
+    l.append(ord(i))
+  for i in l:
+    m.append(int(bin(i)[2:]))
+  return m
+
+
+
+
+keimeno =  input("Enter ASCII charcters:")
+binary=toBinary(keimeno)
+maxc0=0
+maxc1=0
+for i in range(len(binary)):
+    temporarycount1=0
+    temporarycount0=0
+    x = [int(d) for d in str(binary[i])]
+    # me tin parakato while simplironoume ta diadika psifia pou leipoun
+    while len(x) < 7:
+        x.insert(0, 0)
+    for j in range(len(x))   :
+        if x[j]==1   :
+            temporarycount1=temporarycount1 + 1
+            temporarycount0=0
+            if temporarycount1>maxc1    :
+                maxc1=temporarycount1
+        else    :
+            temporarycount0=temporarycount0+1
+            temporarycount1=0
+            if temporarycount0>maxc0    :
+                maxc0=temporarycount0
+print("OI MEGALYTERES AKOLOUTHIES APO ASOUS KAI MHDENIKA EINAI:",maxc1,"KAI",maxc0,"ANTISTOIXA")
+
+
+
+
+
+
